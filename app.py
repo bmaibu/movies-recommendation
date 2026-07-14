@@ -607,11 +607,13 @@ if st.session_state.view == "home":
             "Search",
             placeholder="🔍  Type a movie title… e.g. avenger, batman, love",
             label_visibility="collapsed",
+            key="search_query"
         )
     with col_btn:
         clear = st.button("✕ Clear", use_container_width=True)
         if clear:
-            typed = ""
+            st.session_state.search_query = ""
+            st.rerun()
 
     st.markdown("<hr>", unsafe_allow_html=True)
 
