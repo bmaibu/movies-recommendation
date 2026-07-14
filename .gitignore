@@ -1,0 +1,16 @@
+# Sensitive configuration
+.env
+
+# Large datasets
+movies_metadata.csv
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+
+# OS files
+.DS_Store
+Thumbs.db
