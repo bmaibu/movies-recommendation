@@ -600,6 +600,10 @@ st.markdown(
 # ─────────────────────────────────────────────────────────────────────────────
 if st.session_state.view == "home":
 
+    # Callback function to safely modify session state before widgets render
+    def clear_search():
+        st.session_state.search_query = ""
+
     # ── Search bar ──
     col_input, col_btn = st.columns([6, 1])
     with col_input:
@@ -610,10 +614,7 @@ if st.session_state.view == "home":
             key="search_query"
         )
     with col_btn:
-        clear = st.button("✕ Clear", use_container_width=True)
-        if clear:
-            st.session_state.search_query = ""
-            st.rerun()
+        st.button("✕ Clear", on_click=clear_search, use_container_width=True)
 
     st.markdown("<hr>", unsafe_allow_html=True)
 
